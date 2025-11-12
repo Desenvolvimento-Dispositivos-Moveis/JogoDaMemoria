@@ -6,9 +6,9 @@ import java.util.Stack;
 
 public class Logica {
 
-    int estadoJogo = 0;
-    int vidaPlayer;
-    int pontuacao;
+    private int estadoJogo = 0;
+    private int vidaPlayer;
+    private int pontuacao;
     ArrayList<Carta> mesa = new ArrayList<>();
     ArrayList<Carta> viradas = new ArrayList<>();
 
@@ -85,6 +85,27 @@ public class Logica {
 
     }
 
+    public int getEstadoJogo() {
+        return estadoJogo;
+    }
 
+    public void setEstadoJogo(int estadoJogo) {
+        this.estadoJogo = estadoJogo;
+    }
 
+    public int getVidaPlayer() {
+        return vidaPlayer;
+    }
+
+    public void setVidaPlayer(int vidaPlayer) {
+        this.vidaPlayer = vidaPlayer;
+    }
+
+    public int getPontuacao() {
+        return pontuacao;
+    }
+
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
+    }
 }
