@@ -6,6 +6,7 @@ import java.util.Stack;
 
 public class Logica {
 
+    int estadoJogo = 0;
     int vidaPlayer;
     int pontuacao;
     ArrayList<Carta> mesa = new ArrayList<>();
@@ -43,8 +44,46 @@ public class Logica {
             }
         }
         Collections.shuffle(mesa);
+        estadoJogo = 1;
     }
 
+    public void aoClicarNaCarta(int indexCartaClicada){
+        Carta cartaClicada = mesa.get(indexCartaClicada);
+        if (cartaClicada.isEncontrada() || viradas.size()==2 ){
+            return;
+        }
+        viradas.add(cartaClicada);
+        cartaClicada.virarCarta();
+        if (viradas.size() ==1){
+            return;
+        }
+        if (viradas.size()==2){
+            verificaCombinacao();
+        }
+    }
+
+    public void verificaCombinacao() {
+        Carta cartaVirada1 = viradas.get(0);
+        Carta cartaVirada2 = viradas.get(1);
+            if (cartaVirada1.getImg().equals(cartaVirada2.getImg())) {
+                cartaVirada1.marcarComoEncontrada();
+                cartaVirada2.marcarComoEncontrada();
+                pontuacao+=50;
+                if (mesa.stream().allMatch(Carta::isEncontrada)){
+                    estadoJogo = 3;
+                }
+            }else {
+                cartaVirada1.desvirarCarta();
+                cartaVirada2.desvirarCarta();
+                vidaPlayer--;
+                if (vidaPlayer<=0){
+                    estadoJogo = 2;
+                }
+            }
+            viradas.clear();
+
+
+    }
 
 
 
