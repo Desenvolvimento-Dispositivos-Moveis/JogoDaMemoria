@@ -15,19 +15,13 @@ public class Logica {
     Stack<Carta> todas = new Stack<>();
 
     public void carregaTodas() {
-        todas.add(new Carta("Maça"));
-        todas.add(new Carta("Uva"));
-        todas.add(new Carta("Pera"));
-        todas.add(new Carta("Kiwi"));
-        todas.add(new Carta("Melancia"));
-        todas.add(new Carta("Lima"));
-        todas.add(new Carta("Laranja"));
-        todas.add(new Carta("Ameixa"));
-        todas.add(new Carta("Pinha"));
-        todas.add(new Carta("Graviola"));
-        todas.add(new Carta("Manga"));
-        todas.add(new Carta("Banana"));
-        todas.add(new Carta("Carambola"));
+        todas.add(new Carta("chip"));
+        todas.add(new Carta("hd"));
+        todas.add(new Carta("memoria-ram"));
+        todas.add(new Carta("monitor"));
+        todas.add(new Carta("pc"));
+        todas.add(new Carta("placa-de-video"));
+        todas.add(new Carta("placa-mae"));
     }
 
     public void iniciarJogo(int dificuldade, boolean reset){
