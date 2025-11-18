@@ -2,18 +2,445 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cor_fundo_app"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <LinearLayout
+        android:id="@+id/menu_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cor_fundo_app"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/menu_monitor"
+            android:layout_width="361dp"
+            android:layout_height="259dp"
+            android:layout_marginBottom="1dp"
+            android:contentDescription="Monitor Menu"
+            android:scaleType="fitCenter" />
+
+        <Button
+            android:id="@+id/button_start"
+            style="@style/PixelButton_Main"
+            android:layout_width="300dp"
+            android:text="START" />
+
+        <Button
+            android:id="@+id/button_ranking"
+            style="@style/PixelButton_Main"
+            android:layout_width="300dp"
+            android:text="RANKING" />
+
+        <TextView
+            android:layout_width="273dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/pixel_font"
+            android:text="> Press START to boot..."
+            android:textAlignment="center"
+            android:textColor="@color/cor_principal"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mode_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cor_fundo_app"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="80dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/mode_monitor"
+            android:layout_width="250dp"
+            android:layout_height="180dp"
+            android:layout_marginBottom="1dp"
+            android:contentDescription="Monitor Game Mode"
+            android:scaleType="fitCenter" />
+
+        <Button
+            android:id="@+id/button_easy"
+            style="@style/PixelButton_Main"
+            android:text="EASY" />
+
+        <Button
+            android:id="@+id/button_normal"
+            style="@style/PixelButton_Main"
+            android:text="NORMAL" />
+
+        <Button
+            android:id="@+id/button_hard"
+            style="@style/PixelButton_Main"
+            android:text="HARD" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/game_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cor_fundo_app"
+        android:padding="12dp"
+        android:visibility="gone"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:id="@+id/status_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/text_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/pixel_font"
+                android:gravity="start"
+                android:text="Pares: 0/6 | Pontos: 0"
+                android:textColor="@color/cor_principal"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_lives"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/pixel_font"
+                android:gravity="end"
+                android:text="Vidas: 3"
+                android:textColor="@color/cor_principal"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Chronometer
+                android:id="@+id/timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/pixel_font"
+                android:textColor="@color/cor_principal"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <GridLayout
+            android:id="@+id/card_grid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:columnCount="2"
+            android:padding="4dp"
+            android:rowCount="6"
+            app:layout_constraintBottom_toTopOf="@id/button_reset"
+            app:layout_constraintTop_toBottomOf="@id/status_container">
+
+            <ImageButton
+                android:id="@+id/card0"
+                style="@style/CardButtonStyle"
+                android:contentDescription="Carta 1" />
+
+            <ImageButton
+                android:id="@+id/card1"
+                style="@style/CardButtonStyle"
+                android:contentDescription="Carta 2" />
+
+            <ImageButton
+                android:id="@+id/card2"
+                style="@style/CardButtonStyle"
+                android:contentDescription="Carta 3" />
+
+            <ImageButton
+                android:id="@+id/card3"
+                style="@style/CardButtonStyle"
+                android:contentDescription="Carta 4" />
+
+            <ImageButton
+                android:id="@+id/card4"
+                style="@style/CardButtonStyle"
+                android:contentDescription="Carta 5" />
+
+            <ImageButton
+                android:id="@+id/card5"
+                style="@style/CardButtonStyle"
+                android:contentDescription="Carta 6" />
+
+            <ImageButton
+                android:id="@+id/card6"
+                style="@style/CardButtonStyle"
+                android:contentDescription="Carta 7" />
+
+            <ImageButton
+                android:id="@+id/card7"
+                style="@style/CardButtonStyle"
+                android:contentDescription="Carta 8" />
+
+            <ImageButton
+                android:id="@+id/card8"
+                style="@style/CardButtonStyle"
+                android:contentDescription="Carta 9" />
+
+            <ImageButton
+                android:id="@+id/card9"
+                style="@style/CardButtonStyle"
+                android:contentDescription="Carta 10" />
+
+            <ImageButton
+                android:id="@+id/card10"
+                style="@style/CardButtonStyle"
+                android:contentDescription="Carta 11" />
+
+            <ImageButton
+                android:id="@+id/card11"
+                style="@style/CardButtonStyle"
+                android:contentDescription="Carta 12" />
+
+        </GridLayout>
+
+        <Button
+            android:id="@+id/button_reset"
+            style="@style/PixelButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginBottom="8dp"
+            android:text="REINICIAR"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/ranking_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cor_fundo_app"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pixel_font"
+            android:text="GLOBAL RANKING"
+            android:textAlignment="center"
+            android:textColor="@color/cor_principal"
+            android:textSize="34sp"
+            android:textStyle="bold" /> <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_weight="1"
+        android:background="@drawable/ranking_box_background"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp">
+
+            <TextView
+                style="@style/RankingHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="#" />
+
+            <TextView
+                style="@style/RankingHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="TIME" />
+
+            <TextView
+                style="@style/RankingHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="TENTATIVES" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ranking_list_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="4dp"
+            android:paddingTop="8dp" />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_rank_easy"
+                style="@style/PixelButton_Outline"
+                android:text="EASY" />
+
+            <Button
+                android:id="@+id/button_rank_normal"
+                style="@style/PixelButton_Outline"
+                android:text="NORMAL" />
+
+            <Button
+                android:id="@+id/button_rank_hard"
+                style="@style/PixelButton_Outline"
+                android:text="HARD" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_return"
+            style="@style/PixelButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="RETURN" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/modal_win"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A0000000"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@color/cor_fundo_app"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/win_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixel_font"
+                android:text="VOCÊ VENCEU!"
+                android:textColor="@color/cor_principal"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/win_score_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/pixel_font"
+                android:text="Pontuação: 000"
+                android:textColor="@color/cor_principal"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/button_win_continue"
+                style="@style/PixelButtonStyle"
+                android:layout_marginTop="24dp"
+                android:text="CONTINUAR" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/modal_game_over"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A0000000"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@color/cor_fundo_app"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/game_over_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixel_font"
+                android:text="GAME OVER"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/game_over_score_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/pixel_font"
+                android:text="Pontuação: 000"
+                android:textColor="@color/cor_principal"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/button_game_over_continue"
+                style="@style/PixelButtonStyle"
+                android:layout_marginTop="24dp"
+                android:text="TENTAR NOVAMENTE" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

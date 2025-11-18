@@ -1,9 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.JogoDaMemoria" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <style name="Theme.JogoDaMemoria" parent="Theme.Material3.DayNight.NoActionBar">
     </style>
 
-    <style name="Theme.JogoDaMemoria" parent="Base.Theme.JogoDaMemoria" />
+    <style name="CardButtonStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:backgroundTint">@color/cor_fundo_app</item>
+        <item name="android:src">@drawable/ic_card_back</item>
+    </style>
+
+    <style name="PixelButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginHorizontal">24dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:background">@drawable/button_border</item> <item name="android:textColor">@color/cor_principal</item> <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingVertical">16dp</item>
+        <item name="android:fontFamily">@font/pixel_font</item> </style>
+
+    <style name="RankingHeader" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/cor_principal</item>
+        <item name="android:fontFamily">@font/pixel_font</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PixelButton_Outline" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/button_border</item>
+        <item name="android:fontFamily">@font/pixel_font</item>
+        <item name="android:textColor">@color/cor_principal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginHorizontal">4dp</item>
+
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="PixelButton_Main" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:background">@drawable/button_border</item>
+        <item name="android:fontFamily">@font/pixel_font</item>
+        <item name="android:textColor">@color/cor_principal</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingVertical">12dp</item>
+    </style>
+
 </resources>

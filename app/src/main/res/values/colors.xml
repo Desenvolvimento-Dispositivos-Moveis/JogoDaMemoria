@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="cor_fundo_app">#1C1C30</color>
+
+    <color name="cor_principal">#00FF41</color>
+
+    <color name="cor_borda_principal">#1F478B</color>
+
+    <color name="cor_texto_secundario">#EFEFEF</color>
 </resources>
